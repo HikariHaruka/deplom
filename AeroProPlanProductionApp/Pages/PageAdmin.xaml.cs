@@ -23,6 +23,12 @@ namespace AeroProPlanProductionApp.Pages
         public PageAdmin()
         {
             InitializeComponent();
+            
+        }
+
+        private void btnUsers_Click(object sender, RoutedEventArgs e)
+        {
+            Entities.ClassNavigation.StartFrame.Navigate(new Pages.PageUsersList());
         }
     }
 }

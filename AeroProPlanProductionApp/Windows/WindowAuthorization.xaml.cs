@@ -28,6 +28,7 @@ namespace AeroProPlanProductionApp.Windows
 
         public int userId = 0;
         private int countErrorAvtoriz = 0;
+        public static User authUser = null;
 
         private void btnWatchPass_Click(object sender, RoutedEventArgs e)
         {
@@ -47,38 +48,29 @@ namespace AeroProPlanProductionApp.Windows
 
         private void btnEnter_Click(object sender, RoutedEventArgs e)
         {
-            /*int count = 0;
-            foreach (var user in DBPlanProductEntities._context.Users)
+            Entities.User authUser = null;
+            using (DBPlanProductEntities db = new DBPlanProductEntities())
             {
-                count++;
-                if (txbxLogin.Text == user.Login && (pbxPassword.Password == user.Password || txbxPassword.Text==user.Password))
+                authUser = db.Users.Where(b => b.Login == txbxLogin.Text && b.Password == pbxPassword.Password || b.Password == txbxPassword.Text).FirstOrDefault();
+                if (authUser != null)
                 {
-
-                    userId = user.Id;
-                    MessageBox.Show("Вы успешно авторизованы.", "Информация!", MessageBoxButton.OK, MessageBoxImage.Information);*/
+                    Entities.ClassUser.userLastName = authUser.LastName;
+                    Entities.ClassUser.userFirstName = authUser.FirstName;
+                    Entities.ClassUser.userPathronimic = authUser.Patronymic;
+                    Entities.ClassUser.userRole = authUser.Role.Type;
+                   
+                    var Id = authUser.Id;
+                    
+                    SaveHistory(Id);
                     StartWindow startWindow = new StartWindow();
                     startWindow.Show();
-                   // count = 0;
                     this.Close();
-                   /* break;
+
                 }
-                if (txbxLogin.Text == user.Login)
-                {
-                    userId = user.Id;
-                }
+                else
+                    MessageBox.Show("Введен неверный логин или пароль", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
 
             }
-            if (count != 0)
-            {
-                MessageBox.Show("Логин или пароль не верны!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Warning);
-                countErrorAvtoriz++;
-            }
-            if (countErrorAvtoriz == 3)
-            {
-                countErrorAvtoriz = 0;
-                MessageBox.Show("", "", MessageBoxButton.OK, MessageBoxImage.Warning);
-                Thread.Sleep(10000);
-            }*/
 
         }
     
@@ -86,6 +78,14 @@ namespace AeroProPlanProductionApp.Windows
         private void btnExit_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+        private static void SaveHistory(int Id)
+        {
+            HistoryLogin history = new HistoryLogin();
+            history.IdUser = Id;
+            history.DateTime = DateTime.Now;
+            DBPlanProductEntities.GetContext().HistoryLogins.Add(history);
+            DBPlanProductEntities.GetContext().SaveChanges();
         }
     }
 }

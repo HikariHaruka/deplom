@@ -25,6 +25,17 @@ namespace AeroProPlanProductionApp.Windows
 
             StartFrame.Navigate(new Pages.PageUser());
             Entities.ClassNavigation.StartFrame = StartFrame;
+            if (Entities.ClassUser.userRole == "Главный технолог")
+            {
+                
+                btnNoAdmin.Visibility = Visibility.Hidden;
+                btnAdmin.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                btnNoAdmin.Visibility = Visibility.Visible;
+                btnAdmin.Visibility = Visibility.Hidden;
+            }
         }
 
         private void btnCalcPlanProduct_Click(object sender, RoutedEventArgs e)

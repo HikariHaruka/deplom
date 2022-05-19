@@ -72,6 +72,7 @@
       <DependentUpon>ModelDataBase.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\ClassNavigation.cs" />
+    <Compile Include="Entities\ClassUser.cs" />
     <Compile Include="Entities\HistoryLogin.cs">
       <DependentUpon>ModelDataBase.tt</DependentUpon>
     </Compile>
@@ -122,6 +123,9 @@
     </Compile>
     <Compile Include="Pages\PageUser.xaml.cs">
       <DependentUpon>PageUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PageUsersList.xaml.cs">
+      <DependentUpon>PageUsersList.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\StartWindow.xaml.cs">
       <DependentUpon>StartWindow.xaml</DependentUpon>
@@ -185,6 +189,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\PageUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\PageUsersList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

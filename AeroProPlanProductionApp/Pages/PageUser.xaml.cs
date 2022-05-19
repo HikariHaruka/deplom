@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AeroProPlanProductionApp.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,20 @@ namespace AeroProPlanProductionApp.Pages
         public PageUser()
         {
             InitializeComponent();
+            txbxFIO.Text = Entities.ClassUser.userLastName + " " + Entities.ClassUser.userFirstName + " " + Entities.ClassUser.userPathronimic;
+            txbxRole.Text = Entities.ClassUser.userRole;
+            if (Entities.ClassUser.userRole=="Главный технолог")
+            {
+                imgGlavTeh.Visibility = Visibility.Visible;
+                imgTeh.Visibility = Visibility.Hidden;
+                btnPass.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                imgGlavTeh.Visibility = Visibility.Hidden;
+                imgTeh.Visibility = Visibility.Visible;
+                btnPass.Visibility = Visibility.Hidden;
+            }
         }
 
         private void btnPass_Click(object sender, RoutedEventArgs e)

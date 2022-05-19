@@ -22,7 +22,8 @@
             <Button x:Name="btnProduct" Content="Продукция"  VerticalAlignment="Top" Margin="5,135,5,5"  BorderBrush="Black" Click="btnProduct_Click"></Button>
 
             <Button x:Name="btnUser" Content="Личные данные" VerticalAlignment="Top" Margin="5,190,5,5"  BorderBrush="Black" Click="btnUser_Click"></Button>
-            <Button x:Name="btnAdmin" Content="Мониторинг" VerticalAlignment="Top" Margin="5,245,5,5"  BorderBrush="Black" Click="btnAdmin_Click"></Button>
+            <Button x:Name="btnAdmin" Content="Мониторинг" VerticalAlignment="Top" Margin="5,245,5,5"  BorderBrush="Black" Click="btnAdmin_Click" Visibility="Hidden"></Button>
+            <Button x:Name="btnNoAdmin" Content="Мониторинг" VerticalAlignment="Top" Margin="5,245,5,5"  BorderBrush="Black" Background="{x:Null}" Visibility="Visible" ToolTip="У вас нет доступа"></Button>
             
             <Button x:Name="btnBackYes" Content="Назад" Width="120" Height="40" VerticalAlignment="Bottom" Margin="5,5,5,80"  BorderBrush="Black" Click="btnBackYes_Click"  Visibility="Hidden"></Button>
             <Button x:Name="btnBackNo" Content="Назад" ToolTip="Не активна" Width="120" Height="40" VerticalAlignment="Bottom" Margin="5,5,5,80"  Background="{x:Null}" BorderBrush="Black"></Button>

@@ -1,7 +1,6 @@
 ﻿using AeroProPlanProductionApp.Entities;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,14 +17,14 @@ using System.Windows.Shapes;
 namespace AeroProPlanProductionApp.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для PageProduct.xaml
+    /// Логика взаимодействия для PageUsersList.xaml
     /// </summary>
-    public partial class PageProduct : Page
+    public partial class PageUsersList : Page
     {
-        public PageProduct()
+        public PageUsersList()
         {
             InitializeComponent();
-            dgProducts.ItemsSource = DBPlanProductEntities.GetContext().Products.ToList();
+            dgUsers.ItemsSource = DBPlanProductEntities.GetContext().Users.ToList();
         }
 
         private void btnEdit_Click(object sender, RoutedEventArgs e)
@@ -35,7 +34,7 @@ namespace AeroProPlanProductionApp.Pages
 
         private void btnAddProduct_Click(object sender, RoutedEventArgs e)
         {
-            Entities.ClassNavigation.StartFrame.Navigate(new Pages.PageAddProduct());
+
         }
 
         private void btnDelProduct_Click(object sender, RoutedEventArgs e)
