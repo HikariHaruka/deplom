@@ -130,6 +130,12 @@
     <Compile Include="Windows\StartWindow.xaml.cs">
       <DependentUpon>StartWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\WindowAddBallon.xaml.cs">
+      <DependentUpon>WindowAddBallon.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\WindowAddTypeProduct.xaml.cs">
+      <DependentUpon>WindowAddTypeProduct.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\WindowAuthorization.xaml.cs">
       <DependentUpon>WindowAuthorization.xaml</DependentUpon>
     </Compile>
@@ -197,6 +203,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\StartWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\WindowAddBallon.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\WindowAddTypeProduct.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

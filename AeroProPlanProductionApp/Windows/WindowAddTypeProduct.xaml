@@ -1,0 +1,17 @@
+﻿<Window x:Class="AeroProPlanProductionApp.Windows.WindowAddTypeProduct"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AeroProPlanProductionApp.Windows"
+        mc:Ignorable="d"
+        Title="Добавить тип продукции" Height="200" Width="300"
+        MaxHeight="200" MaxWidth="300" MinHeight="200" MinWidth="300"
+        WindowStartupLocation="CenterOwner">
+    <Grid>
+        <TextBlock Text="Наименование" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="20" Margin="15,30,5,5"></TextBlock>
+        <TextBox x:Name="txbxTypeProd" Width="260" Height="35" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="5,60,5,5" MaxLength="50"></TextBox>
+        <Button Content="Добавить" Name="btnAddTypeProd" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,115,5,5" Click="btnAddTypeProd_Click"></Button>
+        <Button Content="Отмена" Name="btnCloseAddTypeProd" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="5,115,15,5" Click="btnCloseAddTypeProd_Click"></Button>
+    </Grid>
+</Window>

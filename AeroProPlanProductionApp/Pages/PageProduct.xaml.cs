@@ -40,7 +40,7 @@ namespace AeroProPlanProductionApp.Pages
 
         private void btnDelProduct_Click(object sender, RoutedEventArgs e)
         {
-
+            
         }
     }
 }

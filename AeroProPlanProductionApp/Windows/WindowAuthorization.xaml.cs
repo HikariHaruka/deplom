@@ -26,9 +26,6 @@ namespace AeroProPlanProductionApp.Windows
             InitializeComponent();
         }
 
-        public int userId = 0;
-        private int countErrorAvtoriz = 0;
-        public static User authUser = null;
 
         private void btnWatchPass_Click(object sender, RoutedEventArgs e)
         {

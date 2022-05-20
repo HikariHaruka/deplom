@@ -27,12 +27,14 @@ namespace AeroProPlanProductionApp.Pages
 
         private void btnAddProd_Click(object sender, RoutedEventArgs e)
         {
-
+            Windows.WindowAddTypeProduct windowAddTypeProduct = new Windows.WindowAddTypeProduct();
+            windowAddTypeProduct.Show();
         }
 
         private void btnAddBall_Click(object sender, RoutedEventArgs e)
         {
-
+            Windows.WindowAddBallon windowAddBallon = new Windows.WindowAddBallon();
+            windowAddBallon.Show();
         }
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
@@ -42,7 +44,7 @@ namespace AeroProPlanProductionApp.Pages
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
-
+            Entities.ClassNavigation.StartFrame.Navigate(new Pages.PageProduct());
         }
     }
 }
