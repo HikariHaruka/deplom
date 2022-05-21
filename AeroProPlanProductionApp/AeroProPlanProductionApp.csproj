@@ -115,11 +115,20 @@
     <Compile Include="Pages\PageAdmin.xaml.cs">
       <DependentUpon>PageAdmin.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\PageHistoryLogin.xaml.cs">
+      <DependentUpon>PageHistoryLogin.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\PageProduct.xaml.cs">
       <DependentUpon>PageProduct.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\PageProductionPlan.xaml.cs">
       <DependentUpon>PageProductionPlan.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PageTypeBalloon.xaml.cs">
+      <DependentUpon>PageTypeBalloon.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PageTypeProduct.xaml.cs">
+      <DependentUpon>PageTypeProduct.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\PageUser.xaml.cs">
       <DependentUpon>PageUser.xaml</DependentUpon>
@@ -186,11 +195,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\PageHistoryLogin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\PageProduct.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\PageProductionPlan.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\PageTypeBalloon.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\PageTypeProduct.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

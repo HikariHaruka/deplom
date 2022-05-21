@@ -17,29 +17,14 @@ using System.Windows.Shapes;
 namespace AeroProPlanProductionApp.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для PageUsersList.xaml
+    /// Логика взаимодействия для PageHistoryLogin.xaml
     /// </summary>
-    public partial class PageUsersList : Page
+    public partial class PageHistoryLogin : Page
     {
-        public PageUsersList()
+        public PageHistoryLogin()
         {
             InitializeComponent();
-            dgUsers.ItemsSource = DBPlanProductEntities.GetContext().Users.ToList();
-        }
-
-        private void btnEdit_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void btnAddUser_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void btnDelUser_Click(object sender, RoutedEventArgs e)
-        {
-
+            dgHistoryLog.ItemsSource = DBPlanProductEntities.GetContext().HistoryLogins.ToList();
         }
     }
 }

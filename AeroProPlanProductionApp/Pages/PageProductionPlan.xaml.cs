@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AeroProPlanProductionApp.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,8 @@ namespace AeroProPlanProductionApp.Pages
         public PageProductionPlan()
         {
             InitializeComponent();
+            cbxTypeBallon.ItemsSource = DBPlanProductEntities.GetContext().Balloons.ToList();
+            cbxTypeProduct.ItemsSource = DBPlanProductEntities.GetContext().ProductTypes.ToList();
         }
 
         private void btnAddProduct_Click(object sender, RoutedEventArgs e)

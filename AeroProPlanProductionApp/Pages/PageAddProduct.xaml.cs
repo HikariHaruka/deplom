@@ -57,11 +57,11 @@ namespace AeroProPlanProductionApp.Pages
             {
                 errors.AppendLine("Укажите в поле 3 линия только положительные числа, без текста!");
             }
-            if(_product.ProductType.TypeProduct==null)
+            if(_product.ProductType==null) //не работает
             {
                 errors.AppendLine("Выберите тип продукции!");
             }
-            if (_product.Balloon.Diameter == 0)
+            if (_product.Balloon == null) //не работает
             {
                 errors.AppendLine("Выберите вид баллона!");
             }
@@ -77,7 +77,7 @@ namespace AeroProPlanProductionApp.Pages
             try
             {
                 DBPlanProductEntities.GetContext().SaveChanges();
-                MessageBox.Show("");
+                MessageBox.Show("Данные сохранены");
             }
             catch (Exception ex)
             {

@@ -37,8 +37,8 @@
             </DataGrid>
         </Grid>
         <Grid Grid.Row="2">
-            <Button x:Name="btnAddProduct" Content="Добавить" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="50,5,5,5" Click="btnAddProduct_Click"></Button>
-            <Button x:Name="btnDelProduct" Content="Удалить" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5,5,50,5" Click="btnDelProduct_Click"></Button>
+            <Button x:Name="btnAddUser" Content="Добавить" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="50,5,5,5" Click="btnAddUser_Click"></Button>
+            <Button x:Name="btnDelUser" Content="Удалить" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5,5,50,5" Click="btnDelUser_Click"></Button>
         </Grid>
     </Grid>
 </Page>

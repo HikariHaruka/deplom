@@ -42,5 +42,14 @@ namespace AeroProPlanProductionApp.Pages
         {
             
         }
+
+        private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if(Visibility == Visibility.Visible)
+            {
+                DBPlanProductEntities.GetContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
+                dgProducts.ItemsSource = DBPlanProductEntities.GetContext().Products.ToList();
+            }
+        }
     }
 }

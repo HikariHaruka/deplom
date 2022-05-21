@@ -17,27 +17,27 @@ using System.Windows.Shapes;
 namespace AeroProPlanProductionApp.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для PageUsersList.xaml
+    /// Логика взаимодействия для PageTypeBalloon.xaml
     /// </summary>
-    public partial class PageUsersList : Page
+    public partial class PageTypeBalloon : Page
     {
-        public PageUsersList()
+        public PageTypeBalloon()
         {
             InitializeComponent();
-            dgUsers.ItemsSource = DBPlanProductEntities.GetContext().Users.ToList();
+            dgBalloon.ItemsSource = DBPlanProductEntities.GetContext().Balloons.ToList();
+        }
+
+        private void btnAddTypeBalloon_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnDelTypeBalloon_Click(object sender, RoutedEventArgs e)
+        {
+
         }
 
         private void btnEdit_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void btnAddUser_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void btnDelUser_Click(object sender, RoutedEventArgs e)
         {
 
         }

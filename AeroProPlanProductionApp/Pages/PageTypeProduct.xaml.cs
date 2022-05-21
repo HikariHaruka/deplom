@@ -17,14 +17,14 @@ using System.Windows.Shapes;
 namespace AeroProPlanProductionApp.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для PageUsersList.xaml
+    /// Логика взаимодействия для PageTypeProduct.xaml
     /// </summary>
-    public partial class PageUsersList : Page
+    public partial class PageTypeProduct : Page
     {
-        public PageUsersList()
+        public PageTypeProduct()
         {
             InitializeComponent();
-            dgUsers.ItemsSource = DBPlanProductEntities.GetContext().Users.ToList();
+            dgTypeProd.ItemsSource = DBPlanProductEntities.GetContext().ProductTypes.ToList();
         }
 
         private void btnEdit_Click(object sender, RoutedEventArgs e)
@@ -32,12 +32,12 @@ namespace AeroProPlanProductionApp.Pages
 
         }
 
-        private void btnAddUser_Click(object sender, RoutedEventArgs e)
+        private void btnAddTypeProd_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void btnDelUser_Click(object sender, RoutedEventArgs e)
+        private void btnDelTypeProd_Click(object sender, RoutedEventArgs e)
         {
 
         }

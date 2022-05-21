@@ -17,10 +17,10 @@
             <TextBlock Text="Мониторинг и администрирование" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         </Grid>
         <Grid Grid.Row="1">
-            <Button x:Name="btnHistory" Content="История входа" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,100,5,5"></Button>
+            <Button x:Name="btnHistory" Content="История входа" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,100,5,5" Click="btnHistory_Click"></Button>
             <Button x:Name="btnUsers" Content="Пользователи" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="5,100,100,5" Click="btnUsers_Click"></Button>
-            <Button x:Name="btnTypeProduct" Content="Виды продукции" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="100,5,5,100"></Button>
-            <Button x:Name="btnTypeBallon" Content="Баллоны" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="5,5,100,100"></Button>
+            <Button x:Name="btnTypeProduct" Content="Виды продукции" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="100,5,5,100" Click="btnTypeProduct_Click"></Button>
+            <Button x:Name="btnTypeBallon" Content="Баллоны" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="5,5,100,100" Click="btnTypeBallon_Click"></Button>
         </Grid>
     </Grid>
 </Page>

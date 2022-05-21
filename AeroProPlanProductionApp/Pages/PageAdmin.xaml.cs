@@ -30,5 +30,20 @@ namespace AeroProPlanProductionApp.Pages
         {
             Entities.ClassNavigation.StartFrame.Navigate(new Pages.PageUsersList());
         }
+
+        private void btnHistory_Click(object sender, RoutedEventArgs e)
+        {
+            Entities.ClassNavigation.StartFrame.Navigate(new Pages.PageHistoryLogin());
+        }
+
+        private void btnTypeProduct_Click(object sender, RoutedEventArgs e)
+        {
+            Entities.ClassNavigation.StartFrame.Navigate(new Pages.PageTypeProduct());
+        }
+
+        private void btnTypeBallon_Click(object sender, RoutedEventArgs e)
+        {
+            Entities.ClassNavigation.StartFrame.Navigate(new Pages.PageTypeBalloon());
+        }
     }
 }
