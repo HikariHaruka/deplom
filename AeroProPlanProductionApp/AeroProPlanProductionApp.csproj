@@ -112,6 +112,9 @@
     <Compile Include="Pages\PageAddProduct.xaml.cs">
       <DependentUpon>PageAddProduct.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\PageAddUser.xaml.cs">
+      <DependentUpon>PageAddUser.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\PageAdmin.xaml.cs">
       <DependentUpon>PageAdmin.xaml</DependentUpon>
     </Compile>
@@ -188,6 +191,10 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="Pages\PageAddProduct.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\PageAddUser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
