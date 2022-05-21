@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AeroProPlanProductionApp.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,13 @@ namespace AeroProPlanProductionApp.Pages
     /// </summary>
     public partial class PageAddProduct : Page
     {
+        private Product _product = new Product();
         public PageAddProduct()
         {
             InitializeComponent();
+            cbxTypeBallon.ItemsSource = DBPlanProductEntities.GetContext().Balloons.ToList();
+            cbxTypeProduct.ItemsSource = DBPlanProductEntities.GetContext().ProductTypes.ToList();
+            DataContext = _product;
         }
 
         private void btnAddProd_Click(object sender, RoutedEventArgs e)
@@ -39,12 +44,52 @@ namespace AeroProPlanProductionApp.Pages
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
-
+            StringBuilder errors = new StringBuilder();
+            if (_product.OneLine < 0 && tbx1Line.Text.All(char.IsDigit) != true)
+            {
+                errors.AppendLine("Укажите в поле 1 линия только положительные числа, без текста!");
+            }
+            if (_product.TwoLine < 0 && tbx2Line.Text.All(char.IsDigit) != true)
+            {
+                errors.AppendLine("Укажите в поле 2 линия только положительные числа, без текста!");
+            }
+            if (_product.ThreeLine < 0 && tbx3Line.Text.All(char.IsDigit) != true)
+            {
+                errors.AppendLine("Укажите в поле 3 линия только положительные числа, без текста!");
+            }
+            if(_product.ProductType.TypeProduct==null)
+            {
+                errors.AppendLine("Выберите тип продукции!");
+            }
+            if (_product.Balloon.Diameter == 0)
+            {
+                errors.AppendLine("Выберите вид баллона!");
+            }
+            if(errors.Length>0)
+            {
+                MessageBox.Show(errors.ToString());
+                return;
+            }
+            if(_product.Id==0)
+            {
+                DBPlanProductEntities.GetContext().Products.Add(_product);
+            }
+            try
+            {
+                DBPlanProductEntities.GetContext().SaveChanges();
+                MessageBox.Show("");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
             Entities.ClassNavigation.StartFrame.Navigate(new Pages.PageProduct());
         }
+
+       
     }
 }
