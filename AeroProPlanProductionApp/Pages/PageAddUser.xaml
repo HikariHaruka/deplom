@@ -48,10 +48,10 @@
                     </Grid.RowDefinitions>
 
                     <TextBlock Grid.Row="0" Text="Роль:" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,5,5,5"></TextBlock>
-                    <ComboBox Grid.Row="0" Width="150" Height="35" Name="cbxRole" DisplayMemberPath="Type" SelectedItem="{Binding Type}"></ComboBox>
+                    <ComboBox Grid.Row="0" Width="150" Height="35" Name="cbxRole" DisplayMemberPath="Type" SelectedItem="{Binding Role}"></ComboBox>
 
                     <TextBlock Grid.Row="1" Text="Логин:" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,5,5,5"></TextBlock>
-                    <TextBox Grid.Row="1" Name="tbxLogin"></TextBox>
+                    <TextBox Grid.Row="1" Name="txbxLogin"></TextBox>
 
                     <TextBlock Grid.Row="2" Text="Пароль:" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,5,5,5"></TextBlock>
                     <PasswordBox Grid.Row="2" Width="150" Height="35" Name="pbxPass" Visibility="Visible"></PasswordBox>
@@ -65,8 +65,8 @@
 
             </Grid>
             <Grid Grid.Row="2">
-                <Button Content="Сохранить" Name="btnSaveUser" Click="btnSaveUser_Click" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="70,5,5,5"></Button>
-                <Button Content="Отмена" Name="btnExit" Click="btnExit_Click" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="5,5,70,5"></Button>
+                <Button Content="Сохранить" Name="btnSaveUser" Click="btnSaveUser_Click" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="100,5,5,5"></Button>
+                <Button Content="Отмена" Name="btnExit" Click="btnExit_Click" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="5,5,100,5"></Button>
             </Grid>
         </Grid>
     </Grid>

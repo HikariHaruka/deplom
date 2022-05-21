@@ -19,11 +19,11 @@
         <Grid Grid.Row="1">
 
             <TextBlock Text="Тип продукции" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50,30,5,5" FontSize="14"></TextBlock>
-            <ComboBox Name="cbxTypeProduct" Height="35" Width="250" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50,60,5,5" Background="#FF36B2E8" DisplayMemberPath="TypeProduct" SelectedItem="{Binding TypeProduct}"></ComboBox>
+            <ComboBox Name="cbxTypeProduct" Height="35" Width="250" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50,60,5,5" Background="#FF36B2E8" DisplayMemberPath="TypeProduct" SelectedItem="{Binding ProductType}"></ComboBox>
             <Button x:Name="btnAddProd" Content="+" Width="35" Height="35"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="320,60,5,5" Click="btnAddProd_Click"></Button>
 
             <TextBlock Text="Балон" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50,130,5,5" FontSize="14"></TextBlock>
-            <ComboBox Name="cbxTypeBallon" Height="35" Width="250" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50,160,5,5" Background="#FF36B2E8" DisplayMemberPath="Diameter" SelectedItem="{Binding Diameter}"></ComboBox>
+            <ComboBox Name="cbxTypeBallon" Height="35" Width="250" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50,160,5,5" Background="#FF36B2E8" DisplayMemberPath="Diameter" SelectedItem="{Binding Balloon}"></ComboBox>
             <Button x:Name="btnAddBall" Content="+" Width="35" Height="35"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="320,160,5,5" Click="btnAddBall_Click"></Button>
 
             <TextBlock Text="1 линия (шт/смена)" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="5,30,75,5" FontSize="14"></TextBlock>

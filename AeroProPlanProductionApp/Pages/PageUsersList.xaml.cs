@@ -34,7 +34,7 @@ namespace AeroProPlanProductionApp.Pages
 
         private void btnAddUser_Click(object sender, RoutedEventArgs e)
         {
-
+            Entities.ClassNavigation.StartFrame.Navigate(new Pages.PageAddUser());
         }
 
         private void btnDelUser_Click(object sender, RoutedEventArgs e)
