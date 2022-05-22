@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AeroProPlanProductionApp.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,7 +20,7 @@ namespace AeroProPlanProductionApp.Windows
     /// </summary>
     public partial class WindowAddBallon : Window
     {
-        public WindowAddBallon()
+        public WindowAddBallon(Balloon selectedBalloon)
         {
             InitializeComponent();
         }

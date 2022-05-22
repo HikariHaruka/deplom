@@ -30,17 +30,34 @@ namespace AeroProPlanProductionApp.Pages
 
         private void btnEdit_Click(object sender, RoutedEventArgs e)
         {
-
+            Entities.ClassNavigation.StartFrame.Navigate(new PageAddProduct((sender as Button).DataContext as Product));
         }
 
         private void btnAddProduct_Click(object sender, RoutedEventArgs e)
         {
-            Entities.ClassNavigation.StartFrame.Navigate(new Pages.PageAddProduct());
+            Entities.ClassNavigation.StartFrame.Navigate(new Pages.PageAddProduct(null));
         }
 
         private void btnDelProduct_Click(object sender, RoutedEventArgs e)
         {
-            
+            var productsForRemoving = dgProducts.SelectedItems.Cast<Product>().ToList();
+
+            if (MessageBox.Show($"Вы точно хотите удалить следующие {productsForRemoving.Count()} элементов?", "Внимание",
+                MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                try
+                {
+                    DBPlanProductEntities.GetContext().Products.RemoveRange(productsForRemoving);
+                    DBPlanProductEntities.GetContext().SaveChanges();
+                    MessageBox.Show("Данные удалены!");
+
+                    dgProducts.ItemsSource = DBPlanProductEntities.GetContext().Products.ToList();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString());
+                }
+            }
         }
 
         private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)

@@ -22,7 +22,7 @@ namespace AeroProPlanProductionApp.Pages
     public partial class PageAddProduct : Page
     {
         private Product _product = new Product();
-        public PageAddProduct()
+        public PageAddProduct(Product selectedProduct)
         {
             InitializeComponent();
             cbxTypeBallon.ItemsSource = DBPlanProductEntities.GetContext().Balloons.ToList();
@@ -32,13 +32,13 @@ namespace AeroProPlanProductionApp.Pages
 
         private void btnAddProd_Click(object sender, RoutedEventArgs e)
         {
-            Windows.WindowAddTypeProduct windowAddTypeProduct = new Windows.WindowAddTypeProduct();
+            Windows.WindowAddTypeProduct windowAddTypeProduct = new Windows.WindowAddTypeProduct(null);
             windowAddTypeProduct.Show();
         }
 
         private void btnAddBall_Click(object sender, RoutedEventArgs e)
         {
-            Windows.WindowAddBallon windowAddBallon = new Windows.WindowAddBallon();
+            Windows.WindowAddBallon windowAddBallon = new Windows.WindowAddBallon(null);
             windowAddBallon.Show();
         }
 

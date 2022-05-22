@@ -31,13 +31,13 @@
                     </Grid.RowDefinitions>
 
                     <TextBlock Grid.Row="0" Text="Фамилия:" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,5,5,5"></TextBlock>
-                    <TextBox Grid.Row="0" Name="txbxLastName"></TextBox>
+                    <TextBox Grid.Row="0" Name="txbxLastName" Text="{Binding LastName}"></TextBox>
 
                     <TextBlock Grid.Row="1" Text="Имя:" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,5,5,5"></TextBlock>
-                    <TextBox Grid.Row="1" Name="txbxFirstName"></TextBox>
+                    <TextBox Grid.Row="1" Name="txbxFirstName" Text="{Binding FirstName}"></TextBox>
 
                     <TextBlock Grid.Row="2" Text="Отчество:" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,5,5,5"></TextBlock>
-                    <TextBox Grid.Row="2" Name="txbxPatronymic"></TextBox>
+                    <TextBox Grid.Row="2" Name="txbxPatronymic" Text="{Binding Patronymic}"></TextBox>
 
                 </Grid>
                 <Grid Grid.Column="1">
@@ -51,16 +51,10 @@
                     <ComboBox Grid.Row="0" Width="150" Height="35" Name="cbxRole" DisplayMemberPath="Type" SelectedItem="{Binding Role}"></ComboBox>
 
                     <TextBlock Grid.Row="1" Text="Логин:" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,5,5,5"></TextBlock>
-                    <TextBox Grid.Row="1" Name="txbxLogin"></TextBox>
+                    <TextBox Grid.Row="1" Name="txbxLogin" Text="{Binding Login}"></TextBox>
 
                     <TextBlock Grid.Row="2" Text="Пароль:" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,5,5,5"></TextBlock>
-                    <PasswordBox Grid.Row="2" Width="150" Height="35" Name="pbxPass" Visibility="Visible"></PasswordBox>
-                    <TextBox Grid.Row="2" Name="txbxPass" Visibility="Hidden"></TextBox>
-                    <Button Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="220,5,5,5" Width="35" Height="35" BorderBrush="{x:Null}" Foreground="{x:Null}"  Name="btnWatchPass" Click="btnWatchPass_Click">
-                        <Button.Background>
-                            <ImageBrush ImageSource="/AeroProPlanProductionApp;component/Recurses/password (2).png"/>
-                        </Button.Background>
-                    </Button>
+                    <TextBox Grid.Row="2" Name="txbxPass" Visibility="Visible" Text="{Binding Password}"></TextBox>
                 </Grid>
 
             </Grid>

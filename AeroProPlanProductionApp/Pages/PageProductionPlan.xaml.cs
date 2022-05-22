@@ -30,7 +30,7 @@ namespace AeroProPlanProductionApp.Pages
 
         private void btnAddProduct_Click(object sender, RoutedEventArgs e)
         {
-            Entities.ClassNavigation.StartFrame.Navigate(new Pages.PageAddProduct());
+            Entities.ClassNavigation.StartFrame.Navigate(new Pages.PageAddProduct(null));
         }
 
         private void btnCalculate_Click(object sender, RoutedEventArgs e)

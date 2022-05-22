@@ -29,17 +29,34 @@ namespace AeroProPlanProductionApp.Pages
 
         private void btnEdit_Click(object sender, RoutedEventArgs e)
         {
-
+            Entities.ClassNavigation.StartFrame.Navigate(new PageAddUser((sender as Button).DataContext as User));
         }
 
         private void btnAddUser_Click(object sender, RoutedEventArgs e)
         {
-            Entities.ClassNavigation.StartFrame.Navigate(new Pages.PageAddUser());
+            Entities.ClassNavigation.StartFrame.Navigate(new Pages.PageAddUser(null));
         }
 
         private void btnDelUser_Click(object sender, RoutedEventArgs e)
         {
+            var usersForRemoving = dgUsers.SelectedItems.Cast<User>().ToList();
 
+            if(MessageBox.Show($"Вы точно хотите удалить следующие {usersForRemoving.Count()} элементов?", "Внимание",
+                MessageBoxButton.YesNo,MessageBoxImage.Question)==MessageBoxResult.Yes)
+            {
+                try
+                {
+                    DBPlanProductEntities.GetContext().Users.RemoveRange(usersForRemoving);
+                    DBPlanProductEntities.GetContext().SaveChanges();
+                    MessageBox.Show("Данные удалены!");
+
+                    dgUsers.ItemsSource = DBPlanProductEntities.GetContext().Users.ToList();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString());
+                }
+            }
         }
     }
 }

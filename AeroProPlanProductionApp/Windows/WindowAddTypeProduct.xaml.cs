@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AeroProPlanProductionApp.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,14 +20,38 @@ namespace AeroProPlanProductionApp.Windows
     /// </summary>
     public partial class WindowAddTypeProduct : Window
     {
-        public WindowAddTypeProduct()
+        private ProductType _productType = new ProductType();
+        public WindowAddTypeProduct(ProductType selectedProductType)
         {
             InitializeComponent();
+            DataContext = _productType;
         }
 
         private void btnAddTypeProd_Click(object sender, RoutedEventArgs e)
         {
-
+            StringBuilder errors = new StringBuilder();
+            if (_productType.TypeProduct == null)
+            {
+                errors.AppendLine("Введите наименование типа продукта");
+            }
+            if (errors.Length > 0)
+            {
+                MessageBox.Show(errors.ToString());
+                return;
+            }
+            if (_productType.Id == 0)
+            {
+                DBPlanProductEntities.GetContext().ProductTypes.Add(_productType);
+            }
+            try
+            {
+                DBPlanProductEntities.GetContext().SaveChanges();
+                MessageBox.Show("Данные сохранены");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         private void btnCloseAddTypeProd_Click(object sender, RoutedEventArgs e)

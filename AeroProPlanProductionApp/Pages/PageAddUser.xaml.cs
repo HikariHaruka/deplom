@@ -22,9 +22,13 @@ namespace AeroProPlanProductionApp.Pages
     public partial class PageAddUser : Page
     {
         private User _user = new User();
-        public PageAddUser()
+        public PageAddUser(User selectedUser)
         {
             InitializeComponent();
+
+            if (selectedUser != null)
+                _user = selectedUser;
+
             cbxRole.ItemsSource = DBPlanProductEntities.GetContext().Roles.ToList();
             DataContext = _user;
         }
@@ -32,27 +36,14 @@ namespace AeroProPlanProductionApp.Pages
         private void btnSaveUser_Click(object sender, RoutedEventArgs e)
         {
             StringBuilder errors = new StringBuilder();
-            if (txbxLastName.Text != null)
+            if (string.IsNullOrWhiteSpace(_user.LastName))
             {
-                if (txbxLastName.Text.All(char.IsLetter) != true)
-                {
-                    errors.AppendLine("Фамилия должна состоять только из букв");
-                }
+                errors.AppendLine("Введите фамилию");
             }
-            else errors.AppendLine("Введите фамилию");
 
-            if (txbxFirstName.Text != null)
+            if (string.IsNullOrWhiteSpace(_user.FirstName))
             {
-                if (txbxFirstName.Text.All(char.IsLetter) != true)
-                {
-                    errors.AppendLine("Имя должно состоять только из букв");
-                }
-            }
-            else errors.AppendLine("Введите имя");
-
-            if (txbxPatronymic.Text.All(char.IsLetter) != true)
-            {
-                errors.AppendLine("Отчество должно состоять только из букв");
+                errors.AppendLine("Введите имя");
             }
 
             if (_user.Role == null)
@@ -60,29 +51,28 @@ namespace AeroProPlanProductionApp.Pages
                 errors.AppendLine("Выберите роль пользователя");
             }
 
-            if (txbxLogin.Text != null)
+            if (string.IsNullOrWhiteSpace(_user.Login))
             {
-                if (txbxLogin.Text.All(char.IsWhiteSpace) == true)
-                {
-                    errors.AppendLine("Логин не должен содержать пробелов");
-                }
-
+                errors.AppendLine("Введите логин");
             }
-            else errors.AppendLine("Введите логин");
 
-            if (txbxPass.Text != null)
+            if (string.IsNullOrWhiteSpace(_user.Password))
             {
-                if (txbxPass.Text.Length >= 5)
+                errors.AppendLine("Введите пароль");
+            }
+            else
+            {
+                if (_user.Password.Length >= 5)
                 {
                     bool en = true;
                     bool symbol = false;
                     bool number = false;
 
-                    for (int i = 0; i < txbxPass.Text.Length; i++)
+                    for (int i = 0; i < _user.Password.Length; i++)
                     {
-                        if (txbxPass.Text[i] >= 'А' && txbxPass.Text[i] <= 'Я') en = false;
-                        if (txbxPass.Text[i] >= '0' && txbxPass.Text[i] <= '9') number = true;
-                        if (txbxPass.Text[i] == '_' || txbxPass.Text[i] == '$' || txbxPass.Text[i] == '!') symbol = true;
+                        if (_user.Password[i] >= 'А' && _user.Password[i] <= 'Я') en = false;
+                        if (_user.Password[i] >= '0' && _user.Password[i] <= '9') number = true;
+                        if (_user.Password[i] == '_' || _user.Password[i] == '$' || _user.Password[i] == '!') symbol = true;
                     }
 
                     if (en != true) errors.AppendLine("Доступна только английская раскладка в пароле");
@@ -90,8 +80,7 @@ namespace AeroProPlanProductionApp.Pages
                     if (number != true) errors.AppendLine("Добавьте хотя бы одну цифру в пароль");
                 }
                 else errors.AppendLine("Пароль слишком короткий, минимум 5 символов");
-            }
-            else errors.AppendLine("Введите пароль");
+            } 
 
 
             if (errors.Length > 0)
@@ -116,23 +105,8 @@ namespace AeroProPlanProductionApp.Pages
 
         private void btnExit_Click(object sender, RoutedEventArgs e)
         {
-
+            Entities.ClassNavigation.StartFrame.Navigate(new PageUsersList());
         }
-
-        private void btnWatchPass_Click(object sender, RoutedEventArgs e)
-        {
-            if (pbxPass.Visibility == Visibility.Visible)
-            {
-                txbxPass.Visibility = Visibility.Visible;
-                pbxPass.Visibility = Visibility.Hidden;
-                txbxPass.Text = pbxPass.Password;
-            }
-            else
-            {
-                pbxPass.Visibility = Visibility.Visible;
-                txbxPass.Visibility = Visibility.Hidden;
-                pbxPass.Password = txbxPass.Text;
-            }
-        }
+        
     }
 }
