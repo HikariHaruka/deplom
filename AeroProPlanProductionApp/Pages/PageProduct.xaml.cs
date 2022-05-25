@@ -68,5 +68,13 @@ namespace AeroProPlanProductionApp.Pages
                 dgProducts.ItemsSource = DBPlanProductEntities.GetContext().Products.ToList();
             }
         }
+
+        private void txbxSourse_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var currentProd = Entities.DBPlanProductEntities.GetContext().Products.ToList();
+
+            currentProd = currentProd.Where(p => p.NameProduct.ToLower().Contains(txbxSourse.Text.ToLower())).ToList();
+            dgProducts.ItemsSource = currentProd.ToList();
+        }
     }
 }

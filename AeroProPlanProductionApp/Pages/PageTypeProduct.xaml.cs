@@ -60,5 +60,22 @@ namespace AeroProPlanProductionApp.Pages
                 }
             }
         }
+
+        private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (Visibility == Visibility.Visible)
+            {
+                Entities.DBPlanProductEntities.GetContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
+                dgTypeProd.ItemsSource = Entities.DBPlanProductEntities.GetContext().ProductTypes.ToList();
+            }
+        }
+
+        private void txbxSourse_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var currentTypeProd = Entities.DBPlanProductEntities.GetContext().ProductTypes.ToList();
+
+            currentTypeProd = currentTypeProd.Where(p => p.TypeProduct.ToLower().Contains(txbxSourse.Text.ToLower())).ToList();
+            dgTypeProd.ItemsSource = currentTypeProd.ToList();
+        }
     }
 }

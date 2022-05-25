@@ -60,5 +60,22 @@ namespace AeroProPlanProductionApp.Pages
             Windows.WindowAddBallon windowAddBallon = new Windows.WindowAddBallon((sender as Button).DataContext as Balloon);
             windowAddBallon.Show();
         }
+
+        private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (Visibility == Visibility.Visible)
+            {
+                Entities.DBPlanProductEntities.GetContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
+                dgBalloon.ItemsSource = Entities.DBPlanProductEntities.GetContext().Balloons.ToList();
+            }
+        }
+
+        private void txbxSourse_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var currentBallons = Entities.DBPlanProductEntities.GetContext().Balloons.ToList();
+
+            currentBallons = currentBallons.Where(p => p.NameBalloon.ToLower().Contains(txbxSourse.Text.ToLower())).ToList();
+            dgBalloon.ItemsSource = currentBallons.ToList();
+        }
     }
 }

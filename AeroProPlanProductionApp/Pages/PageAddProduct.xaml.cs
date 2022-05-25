@@ -90,6 +90,27 @@ namespace AeroProPlanProductionApp.Pages
             Entities.ClassNavigation.StartFrame.Navigate(new Pages.PageProduct());
         }
 
-       
+        private void cbxTypeProduct_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            TextBox search = sender as TextBox;
+            if (search != null)
+            {
+                cbxTypeProduct.ItemsSource = Entities.DBPlanProductEntities.GetContext().ProductTypes.Where(p => p.TypeProduct.Contains(search.Text)).ToList();
+            }
+        }
+
+        private void cbxTypeBallon_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            TextBox search = sender as TextBox;
+            if(search != null)
+            {
+                cbxTypeBallon.ItemsSource = Entities.DBPlanProductEntities.GetContext().Balloons.Where(p => p.NameBalloon.Contains(search.Text)).ToList();
+            }
+        }
+
+        private void cbxTypeProduct_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

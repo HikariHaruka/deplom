@@ -20,14 +20,50 @@ namespace AeroProPlanProductionApp.Windows
     /// </summary>
     public partial class WindowAddBallon : Window
     {
+        public Balloon balloon = new Balloon();
         public WindowAddBallon(Balloon selectedBalloon)
         {
             InitializeComponent();
+            
+            if(selectedBalloon!=null)
+            {
+                txbxDimBal.Text = Convert.ToString(selectedBalloon.Diameter);
+                txbxComm.Text = Convert.ToString(selectedBalloon.Description);
+                cbxActuality.IsChecked = selectedBalloon.Actuality;
+            }
+
+            DataContext = balloon;
         }
 
         private void btnAddBall_Click(object sender, RoutedEventArgs e)
         {
+            StringBuilder errors = new StringBuilder();
+            if (balloon.Diameter < 0 && txbxDimBal.Text.All(char.IsDigit) != true)
+            {
+                errors.AppendLine("Укажите в поле диаметер только положительные числа, без текста!");
+            }
+            if (errors.Length > 0)
+            {
+                MessageBox.Show(errors.ToString());
+                return;
+            }
+            if (balloon.Id == 0)
+            {
+                if (cbxActuality.IsChecked == true)
+                    balloon.Actuality = true;
+                else balloon.Actuality = false;
 
+                DBPlanProductEntities.GetContext().Balloons.Add(balloon);
+            }
+            try
+            {
+                DBPlanProductEntities.GetContext().SaveChanges();
+                MessageBox.Show("Данные сохранены");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         private void btnCloseAddBall_Click(object sender, RoutedEventArgs e)

@@ -21,11 +21,12 @@ namespace AeroProPlanProductionApp.Pages
     /// </summary>
     public partial class PageProductionPlan : Page
     {
+        private PlanProduction _planProd = new PlanProduction();
         public PageProductionPlan()
         {
             InitializeComponent();
-            cbxTypeBallon.ItemsSource = DBPlanProductEntities.GetContext().Balloons.ToList();
-            cbxTypeProduct.ItemsSource = DBPlanProductEntities.GetContext().ProductTypes.ToList();
+            cbxProduct.ItemsSource = DBPlanProductEntities.GetContext().Products.ToList();
+            DataContext = _planProd;
         }
 
         private void btnAddProduct_Click(object sender, RoutedEventArgs e)
@@ -35,17 +36,62 @@ namespace AeroProPlanProductionApp.Pages
 
         private void btnCalculate_Click(object sender, RoutedEventArgs e)
         {
+            if (_planProd.QuantityOfProducts > 0 && tbxQuantity.Text.All(char.IsDigit) == true)
+            {
+                int quanProd = Convert.ToInt32(tbxQuantity.Text);
+                int oneShif = 0;
+                int quanShif;
+
+                if (_planProd.Product.NameProduct != null)
+                {
+                    int prod = cbxProduct.SelectedIndex + 1;
+                    if (chbx1Line.IsChecked == true)
+                    {
+                        int oneLine = Convert.ToInt32(Entities.DBPlanProductEntities.GetContext().Products.Single(p => p.Id == prod).OneLine);
+                        if (oneLine > 0)
+                        {
+                            oneShif = +oneLine;
+                        }
+                    }
+                    if (chbx2Line.IsChecked == true)
+                    {
+                        int twoLine = Convert.ToInt32(Entities.DBPlanProductEntities.GetContext().Products.Single(p => p.Id == prod).TwoLine);
+                        if (twoLine > 0)
+                        {
+                            oneShif = +twoLine;
+                        }
+                    }
+                    if (chbx3Line.IsChecked == true)
+                    {
+                        int threeLine = Convert.ToInt32(Entities.DBPlanProductEntities.GetContext().Products.Single(p => p.Id == prod).ThreeLine);
+                        if (threeLine > 0)
+                        {
+                            oneShif = +threeLine;
+                        }
+                    }
+                    if (oneShif < 1)
+                    {
+                        oneShif = 1;
+                        quanShif = Convert.ToInt32(Math.Ceiling(Convert.ToDecimal(Convert.ToDouble(quanProd) / Convert.ToDouble(oneShif))));
+                    }
+                    else 
+                    {
+                        quanShif = Convert.ToInt32(Math.Ceiling(Convert.ToDecimal(Convert.ToDouble(quanProd) / Convert.ToDouble(oneShif))));
+                    }
+                    Windows.WindowPlanProduct windowPlanProduct = new Windows.WindowPlanProduct(prod,quanProd,quanShif);
+                    windowPlanProduct.Show();
+                }
+            }
+            
 
         }
-
-        private void cbxTypeProduct_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void cbxProduct_PreviewKeyDown(object sender, KeyEventArgs e)
         {
-
-        }
-
-        private void cbxTypeBallon_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
+            TextBox search = sender as TextBox;
+            if (search != null)
+            {
+                cbxProduct.ItemsSource = Entities.DBPlanProductEntities.GetContext().Products.Where(p => p.NameProduct.Contains(search.Text)).ToList();
+            }
         }
     }
 }

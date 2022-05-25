@@ -71,7 +71,10 @@
     <Compile Include="Entities\Balloon.cs">
       <DependentUpon>ModelDataBase.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entities\ClassBalloon.cs" />
     <Compile Include="Entities\ClassNavigation.cs" />
+    <Compile Include="Entities\ClassPartialUser.cs" />
+    <Compile Include="Entities\ClassProduct.cs" />
     <Compile Include="Entities\ClassUser.cs" />
     <Compile Include="Entities\HistoryLogin.cs">
       <DependentUpon>ModelDataBase.tt</DependentUpon>
@@ -150,6 +153,9 @@
     </Compile>
     <Compile Include="Windows\WindowAuthorization.xaml.cs">
       <DependentUpon>WindowAuthorization.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\WindowPlanProduct.xaml.cs">
+      <DependentUpon>WindowPlanProduct.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -243,6 +249,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\WindowAuthorization.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\WindowPlanProduct.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

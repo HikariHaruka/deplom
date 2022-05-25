@@ -1,0 +1,29 @@
+﻿<Window x:Class="AeroProPlanProductionApp.Windows.WindowPlanProduct"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AeroProPlanProductionApp.Windows"
+        mc:Ignorable="d" Icon="/Recurses/logo.ico"
+        Title="Производственный план" Height="250" Width="400"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="90"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" x:Name="grPrint">
+        <TextBlock Text="Продукция:" Margin="25,20,5,5" FontSize="20" Grid.RowSpan="2"></TextBlock>
+        <TextBlock x:Name="txblProd" Margin="140,20,5,5" FontSize="20" Grid.RowSpan="2"></TextBlock>
+
+        <TextBlock Text="Количество продукции:" Margin="25,50,5,5" FontSize="20" Grid.RowSpan="2"></TextBlock>
+        <TextBlock x:Name="txblQuanProd" Margin="240,50,5,5" FontSize="20" Grid.RowSpan="2"></TextBlock>
+
+        <TextBlock Text="Количество смен:" Margin="25,80,5,5" FontSize="20" Grid.RowSpan="2"></TextBlock>
+        <TextBlock x:Name="txblQuanShif" Margin="190,80,5,5" FontSize="20" Grid.RowSpan="2"></TextBlock>
+        </Grid>
+
+        <Button x:Name="btnSave" Content="Сохранить" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="25,0,0,25" Click="btnSave_Click" Grid.Row="1"></Button>
+        <Button x:Name="btnPrint" Content="Печать" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,25,25" Click="btnPrint_Click" Grid.Row="1"></Button>
+    </Grid>
+</Window>

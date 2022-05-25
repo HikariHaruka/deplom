@@ -24,6 +24,11 @@ namespace AeroProPlanProductionApp.Windows
         public WindowAddTypeProduct(ProductType selectedProductType)
         {
             InitializeComponent();
+            if (selectedProductType != null)
+            {
+                txbxTypeProd.Text = Convert.ToString(selectedProductType);
+                cbxActuality.IsChecked = selectedProductType.Actuality;
+            }
             DataContext = _productType;
         }
 
@@ -41,6 +46,10 @@ namespace AeroProPlanProductionApp.Windows
             }
             if (_productType.Id == 0)
             {
+                if (cbxActuality.IsChecked == true)
+                    _productType.Actuality = true;
+                else _productType.Actuality = false;
+
                 DBPlanProductEntities.GetContext().ProductTypes.Add(_productType);
             }
             try

@@ -20,18 +20,15 @@
 
             <Button x:Name="btnAddProduct" Content="Добавить продукцию" Width="150" Height="40" Background="#FF36B2E8" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50,30,5,5" Click="btnAddProduct_Click"></Button>
 
-            <TextBlock Text="Тип продукции" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50,80,5,5" FontSize="14"></TextBlock>
-            <ComboBox Name="cbxTypeProduct" Height="35" Width="250" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50,110,5,5" Background="#FF36B2E8" SelectionChanged="cbxTypeProduct_SelectionChanged" DisplayMemberPath="TypeProduct" SelectedItem="{Binding TypeProduct}"></ComboBox>
-
-            <TextBlock Text="Балон" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50,180,5,5" FontSize="14"></TextBlock>
-            <ComboBox Name="cbxTypeBallon" Height="35" Width="250" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50,210,5,5" Background="#FF36B2E8" SelectionChanged="cbxTypeBallon_SelectionChanged" DisplayMemberPath="Diameter" SelectedItem="{Binding Diameter}"></ComboBox>
+            <TextBlock Text="Продукция" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50,80,5,5" FontSize="14"></TextBlock>
+            <ComboBox Name="cbxProduct" Height="35" Width="250" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50,110,5,5" Background="#FF36B2E8" IsEditable="True" DisplayMemberPath="NameProduct" SelectedItem="{Binding Product}" PreviewKeyDown="cbxProduct_PreviewKeyDown"></ComboBox>
 
             <TextBlock Text="Количесво продукции (шт)" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="5,80,126,5" FontSize="14"></TextBlock>
             <TextBox x:Name="tbxQuantity" Width="150" Height="35" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="5,110,150,5" Text="{Binding QuantityOfProducts}"></TextBox>
 
-            <CheckBox Content="1 линия" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="5,180,228,5"></CheckBox>
-            <CheckBox Content="2 линия" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="5,210,228,5"></CheckBox>
-            <CheckBox Content="3 линия" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="5,240,228,5"></CheckBox>
+            <CheckBox Content="1 линия" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="5,180,228,5" Name="chbx1Line"></CheckBox>
+            <CheckBox Content="2 линия" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="5,210,228,5" Name="chbx2Line"></CheckBox>
+            <CheckBox Content="3 линия" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="5,240,228,5" Name="chbx3Line"></CheckBox>
 
             <Button x:Name="btnCalculate" Content="Расчитать" Width="150" Height="40" Background="#FF36B2E8" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="50,5,5,30" Click="btnCalculate_Click"></Button>
         </Grid>
