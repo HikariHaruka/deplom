@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.32228.343
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AeroProPlanProductionApp", "AeroProPlanProductionApp\AeroProPlanProductionApp.csproj", "{25AEEC0A-6102-4D28-A8A2-13F96BD53387}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibraryAddUserPassword", "ClassLibraryAddUserPassword\ClassLibraryAddUserPassword.csproj", "{52AEE9E0-0A58-4419-B00C-3B204DEB9E48}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibraryAddUserPasswordTests", "ClassLibraryAddUserPasswordTests\ClassLibraryAddUserPasswordTests.csproj", "{EBE0E9A3-4B4B-456E-9B44-30B312FD8652}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{25AEEC0A-6102-4D28-A8A2-13F96BD53387}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{25AEEC0A-6102-4D28-A8A2-13F96BD53387}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{25AEEC0A-6102-4D28-A8A2-13F96BD53387}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52AEE9E0-0A58-4419-B00C-3B204DEB9E48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52AEE9E0-0A58-4419-B00C-3B204DEB9E48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52AEE9E0-0A58-4419-B00C-3B204DEB9E48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52AEE9E0-0A58-4419-B00C-3B204DEB9E48}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBE0E9A3-4B4B-456E-9B44-30B312FD8652}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBE0E9A3-4B4B-456E-9B44-30B312FD8652}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBE0E9A3-4B4B-456E-9B44-30B312FD8652}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBE0E9A3-4B4B-456E-9B44-30B312FD8652}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

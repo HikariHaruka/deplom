@@ -17,17 +17,12 @@
             <TextBlock Text="Страница пользователя" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         </Grid>
         <Grid Grid.Row="1">
-            
             <Image x:Name="imgGlavTeh" Source="/AeroProPlanProductionApp;component/Recurses/glavteh.jpg" Visibility="Visible" Height="120" Width="120" VerticalAlignment="Top"
                    HorizontalAlignment="Left" Margin="20"></Image>
             <Image x:Name="imgTeh" Source="/AeroProPlanProductionApp;component/Recurses/teh.png" Visibility="Hidden" Height="120" Width="120" VerticalAlignment="Top"
                    HorizontalAlignment="Left" Margin="20"></Image>
-
             <TextBlock Text="ФИО" FontSize="20" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="150,20,5,5" Name="txbxFIO"></TextBlock>
             <TextBlock Text="Должность" FontSize="20" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="150,50,5,5" Name="txbxRole"></TextBlock>
-
-            <Button x:Name="btnPass" Content="Смена пароля" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,160,5,5" Click="btnPass_Click"></Button>
-            
         </Grid>
     </Grid>
 </Page>

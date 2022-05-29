@@ -30,19 +30,15 @@ namespace AeroProPlanProductionApp.Pages
             {
                 imgGlavTeh.Visibility = Visibility.Visible;
                 imgTeh.Visibility = Visibility.Hidden;
-                btnPass.Visibility = Visibility.Visible;
+                
             }
             else
             {
                 imgGlavTeh.Visibility = Visibility.Hidden;
                 imgTeh.Visibility = Visibility.Visible;
-                btnPass.Visibility = Visibility.Hidden;
+                
             }
         }
 
-        private void btnPass_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }

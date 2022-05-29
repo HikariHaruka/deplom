@@ -48,7 +48,8 @@ namespace AeroProPlanProductionApp.Windows
             Entities.User authUser = null;
             using (DBPlanProductEntities db = new DBPlanProductEntities())
             {
-                authUser = db.Users.Where(b => b.Login == txbxLogin.Text && b.Password == pbxPassword.Password || b.Password == txbxPassword.Text).FirstOrDefault();
+                authUser = db.Users.Where(b => b.Login == txbxLogin.Text && b.Password == pbxPassword.Password
+                || b.Password == txbxPassword.Text).FirstOrDefault();
                 if (authUser != null)
                 {
                     Entities.ClassUser.userLastName = authUser.LastName;
@@ -65,7 +66,8 @@ namespace AeroProPlanProductionApp.Windows
 
                 }
                 else
-                    MessageBox.Show("Введен неверный логин или пароль", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("Введен неверный логин или пароль", "Ошибка",
+                        MessageBoxButton.OK, MessageBoxImage.Error);
 
             }
 
