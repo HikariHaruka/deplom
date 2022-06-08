@@ -26,8 +26,7 @@ namespace AeroProPlanProductionApp.Windows
             InitializeComponent();
             if (selectedProductType != null)
             {
-                txbxTypeProd.Text = Convert.ToString(selectedProductType);
-                cbxActuality.IsChecked = selectedProductType.Actuality;
+                _productType = selectedProductType;
             }
             DataContext = _productType;
         }
@@ -54,7 +53,7 @@ namespace AeroProPlanProductionApp.Windows
             }
             try
             {
-                DBPlanProductEntities.GetContext().SaveChanges();
+               // DBPlanProductEntities.GetContext().SaveChanges();
                 MessageBox.Show("Данные сохранены");
             }
             catch (Exception ex)

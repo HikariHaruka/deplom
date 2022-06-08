@@ -18,7 +18,6 @@ namespace ClassLibraryAddUserPassword
                 bool symbol = false;
                 bool number = false;
                 
-
                 for (int i = 0; i <password.Length; i++)
                 {
                     if (password[i] >= 'А' && password[i] <= 'Я') en = false;

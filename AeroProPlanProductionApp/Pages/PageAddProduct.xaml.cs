@@ -25,6 +25,10 @@ namespace AeroProPlanProductionApp.Pages
         public PageAddProduct(Product selectedProduct)
         {
             InitializeComponent();
+
+            if (selectedProduct != null)
+                _product = selectedProduct;
+
             cbxTypeBallon.ItemsSource = DBPlanProductEntities.GetContext().Balloons.ToList();
             cbxTypeProduct.ItemsSource = DBPlanProductEntities.GetContext().ProductTypes.ToList();
             DataContext = _product;
@@ -76,7 +80,7 @@ namespace AeroProPlanProductionApp.Pages
             }
             try
             {
-                DBPlanProductEntities.GetContext().SaveChanges();
+                //DBPlanProductEntities.GetContext().SaveChanges();
                 MessageBox.Show("Данные сохранены");
             }
             catch (Exception ex)

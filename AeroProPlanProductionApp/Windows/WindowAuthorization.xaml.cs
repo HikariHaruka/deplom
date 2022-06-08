@@ -68,9 +68,7 @@ namespace AeroProPlanProductionApp.Windows
                 else
                     MessageBox.Show("Введен неверный логин или пароль", "Ошибка",
                         MessageBoxButton.OK, MessageBoxImage.Error);
-
             }
-
         }
     
 

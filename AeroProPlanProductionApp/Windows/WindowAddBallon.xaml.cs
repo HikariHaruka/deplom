@@ -27,9 +27,7 @@ namespace AeroProPlanProductionApp.Windows
             
             if(selectedBalloon!=null)
             {
-                txbxDimBal.Text = Convert.ToString(selectedBalloon.Diameter);
-                txbxComm.Text = Convert.ToString(selectedBalloon.Description);
-                cbxActuality.IsChecked = selectedBalloon.Actuality;
+                balloon = selectedBalloon;
             }
 
             DataContext = balloon;
@@ -57,7 +55,7 @@ namespace AeroProPlanProductionApp.Windows
             }
             try
             {
-                DBPlanProductEntities.GetContext().SaveChanges();
+               // DBPlanProductEntities.GetContext().SaveChanges();
                 MessageBox.Show("Данные сохранены");
             }
             catch (Exception ex)
